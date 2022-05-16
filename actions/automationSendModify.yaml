@@ -18,7 +18,7 @@ parameters:
     type: string
     description: pass word
     required: true
-    secret:true
+    secret: true
   TicktID:
     type: string
     description: like 'INC00000052635'
@@ -55,8 +55,6 @@ parameters:
     type: string
     description: The state you want to change the document to like 'Cancelled'
     required: true
-    url,userName,pwd,TicktID, Summary, Notes, ASCPY, ASORG, ASGRP, ASCHG, Priority, INCStatus, Resolution,
-    Status_Reason, Root_Cause,workInfor,types
   Resolution:
     type: string
     description: like 'Issue:\nReason:\nResolution:Monitoring Fixed'
