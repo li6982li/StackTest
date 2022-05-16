@@ -29,6 +29,9 @@ class SendSingleSms(Action):
 
     def run(self, phoneNum,smsMsg1,smsMsg2,APPID ,APPKEY ,TEMPLATE_IDS ,SMS_SIGN ,SMS_CODE_REDIS_EXPIRES):
         try:
+            APPID = int(float(APPID))
+            TEMPLATE_IDS = int(float(TEMPLATE_IDS))
+            SMS_CODE_REDIS_EXPIRES = int(float(SMS_CODE_REDIS_EXPIRES))
             # Generate 4-digit random extension code extend
             extend = random.randint(0, 9999)
             # Add 0 in front of less than 4
@@ -37,7 +40,7 @@ class SendSingleSms(Action):
             content = sms_template_parameters(smsMsg1,smsMsg2)
             ssender = SmsSingleSender(APPID, APPKEY)
             try:
-                _Ret = ssender.send_with_param(86, phoneNum, int(TEMPLATE_IDS), content, SMS_SIGN, extend=extend,ext="")
+                _Ret = ssender.send_with_param(86, phoneNum, TEMPLATE_IDS, content, SMS_SIGN, extend=extend,ext="")
             except HTTPError as e:
                 return {"errmsg": "sms HTTPError:%s" % e}
             except Exception as e:
