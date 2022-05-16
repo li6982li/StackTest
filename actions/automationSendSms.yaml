@@ -1,0 +1,39 @@
+---
+name: sendSms
+runner_type: python-script
+description: send sms to others.
+enabled: true
+entry_point: automationSendSms.py
+parameters:
+  phoneNum:
+    type: string
+    description: like '136xxxxxxxx'.
+    required: true
+  smsMsg1:
+    type: string
+    description: msg
+    required: true
+  smsMsg2:
+    type: string
+    description: msg
+    required: true
+  APPID:
+    type: string
+    description: info
+    required: true
+  APPKEY:
+    type: string
+    description:  info
+    required: true
+  TEMPLATE_IDS:
+    type: string
+    description: info
+    required: true
+  SMS_SIGN:
+    type: string
+    description: info
+    required: true
+  SMS_CODE_REDIS_EXPIRES:
+    type: string
+    description: info
+    required: true
