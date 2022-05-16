@@ -29,7 +29,7 @@ class SendSingleSms(Action):
 
     def run(self, phoneNum,smsMsg1,smsMsg2,APPID ,APPKEY ,TEMPLATE_IDS ,SMS_SIGN ,SMS_CODE_REDIS_EXPIRES):
         try:
-            APPID = int(float(APPID))
+            # APPID = int(float(APPID))
             TEMPLATE_IDS = int(float(TEMPLATE_IDS))
             SMS_CODE_REDIS_EXPIRES = int(float(SMS_CODE_REDIS_EXPIRES))
             # Generate 4-digit random extension code extend
