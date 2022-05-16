@@ -3,7 +3,7 @@ name: sendvoice
 runner_type: python-script
 description: send voice to others.
 enabled: true
-entry_point: automationVoices.py
+entry_point: automationSendVoices.py
 parameters:
   phoneNum:
     type: string
