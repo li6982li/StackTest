@@ -1,6 +1,7 @@
 import requests
 import urllib3
 import configparser
+from st2common.runners.base_action import Action
 
 class RemedyModifyIncidentAPI(object):
     def __init__(self,url,userName,pwd):
@@ -115,7 +116,7 @@ class RemedyModifyIncidentAPI(object):
             return ["n","转单发生未知异常%s" % str(e)]
 
 
-class Modify():
+class Modify(Action):
     def run(self,url,userName,pwd,TicktID, Summary, Notes, ASCPY, ASORG, ASGRP, ASCHG, Priority, INCStatus, Resolution,
                        Status_Reason, Root_Cause,workInfor,types):
 
