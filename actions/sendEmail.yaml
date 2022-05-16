@@ -1,0 +1,55 @@
+---
+name: sendemail
+runner_type: python-script
+description: send mail to others.
+enabled: true
+entry_point: sendEmail.py
+parameters:
+  incident:
+    type: string
+    description: incident_num ,like 'INC00000069000'.
+    required: true
+  priority:
+    type: string
+    description: like 'P1' or 'High'.
+    required: true
+  summary:
+    type: string
+    description: event summary.
+    required: true
+  notes:
+    type: string
+    description: event notes
+    required: true
+  validationResults:
+    type: string
+    description: Result of the previous step.
+    required: true
+  toRecipients:
+    type: string
+    description: receiver email like 'liyn25@lenovo.com/liyn25@lenovo.com' or ''.
+    required: false
+  ccRecipients:
+    type: string
+    description: cc email like 'liyn25@lenovo.com/liyn25@lenovo.com'  or ''.
+    required: false
+  nextAction:
+    type: string
+    description: next action.
+    required: true
+  types:
+    type: string
+    description: Select a sending template based on the type.
+    required: true
+  userName:
+    type: string
+    description: sender user.
+    required: true
+  pwd:
+    type: string
+    description: sender password.
+    required: true
+  primarySmtpAddress:
+    type: string
+    description: sender email
+    required: true
