@@ -140,20 +140,6 @@ class VoiceCallFlow(SmsTtsCall):
 
 class Voices(Action):
     def run(self,phoneNum,voiceMsg1, voiceMsg2,types,REGION,PRODUCT_NAME,DOMAIN,ACCESS_KEY_ID,ACCESS_KEY_SECRET,template):
-        """
-
-        :param phoneNum:
-        :param voiceMsg1:
-        :param voiceMsg2:
-        :param types:
-        :param REGION:
-        :param PRODUCT_NAME:
-        :param DOMAIN:
-        :param ACCESS_KEY_ID:
-        :param ACCESS_KEY_SECRET:
-        :param template:
-        :return:
-        """
         obj = VoiceCallFlow(types,REGION,PRODUCT_NAME,DOMAIN,ACCESS_KEY_ID,ACCESS_KEY_SECRET,template)
         r = obj.sendVoices(phoneNum,voiceMsg1,voiceMsg2)
         print(666,r)

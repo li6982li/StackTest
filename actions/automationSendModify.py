@@ -1,6 +1,5 @@
 import requests
 import urllib3
-import configparser
 from st2common.runners.base_action import Action
 
 class RemedyModifyIncidentAPI(object):
@@ -106,6 +105,7 @@ class RemedyModifyIncidentAPI(object):
             r = requests.post(url=url, json=data, headers=headers, verify=False)
             status_code = r.status_code
             if status_code == 201:
+                print("成功...")
                 return ["y", "y"]
             else:
                 except_result = str(r.json())
@@ -116,11 +116,11 @@ class RemedyModifyIncidentAPI(object):
             return ["n","转单发生未知异常%s" % str(e)]
 
 
-class Modify(Action):
+class ModifyTickets(Action):
     def run(self,url,userName,pwd,TicktID, Summary, Notes, ASCPY, ASORG, ASGRP, ASCHG, Priority, INCStatus, Resolution,
-                       Status_Reason, Root_Cause,workInfor,types):
+                       StatusReason, RootCause,workInfor,types):
 
         obj = RemedyModifyIncidentAPI(url,userName,pwd)
 
         return obj.modifyTickets(TicktID, Summary, Notes, ASCPY, ASORG, ASGRP, ASCHG, Priority, INCStatus, Resolution,
-                       Status_Reason, Root_Cause,workInfor,types)
+                       StatusReason, RootCause,workInfor,types)

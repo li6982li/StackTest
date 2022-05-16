@@ -1,5 +1,5 @@
 ---
-name: modify tickets
+name: modifyTickets
 runner_type: python-script
 description: tickets to others.
 enabled: true
@@ -13,11 +13,13 @@ parameters:
     type: string
     description: user name
     required: true
+    position: 1
     secret: true
   pwd:
     type: string
     description: pass word
     required: true
+    position: 2
     secret: true
   TicktID:
     type: string
@@ -25,7 +27,7 @@ parameters:
     required: true
   Summary:
     type: string
-    description:  info
+    description: info
     required: true
   Notes:
     type: string
@@ -59,11 +61,11 @@ parameters:
     type: string
     description: like 'Issue:\nReason:\nResolution:Monitoring Fixed'
     required: true
-  Status_Reason:
+  StatusReason:
     type: string
     description: like 'Auto resume'
     required: true
-  Root_Cause:
+  RootCause:
     type: string
     description: like 'Auto recovery'
     required: true
