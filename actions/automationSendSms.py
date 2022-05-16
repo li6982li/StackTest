@@ -37,7 +37,7 @@ class SendSingleSms(Action):
             content = sms_template_parameters(smsMsg1,smsMsg2)
             ssender = SmsSingleSender(APPID, APPKEY)
             try:
-                _Ret = ssender.send_with_param(86, phoneNum, TEMPLATE_IDS, content, SMS_SIGN, extend=extend,ext="")
+                _Ret = ssender.send_with_param(86, phoneNum, int(TEMPLATE_IDS), content, SMS_SIGN, extend=extend,ext="")
             except HTTPError as e:
                 return {"errmsg": "sms HTTPError:%s" % e}
             except Exception as e:
