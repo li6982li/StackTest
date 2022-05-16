@@ -13,7 +13,7 @@ parameters:
     type: string
     description: user name
     required: true
-    secret:true
+    secret: true
   pwd:
     type: string
     description: pass word
