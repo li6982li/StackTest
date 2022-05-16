@@ -1,5 +1,6 @@
 import json
 import logging
+#aliyun-python-sdk-dyvmsapi==3.0.2
 import time,datetime
 from aliyunsdkcore.client import AcsClient
 from aliyunsdkcore.profile import region_provider

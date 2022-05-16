@@ -1,0 +1,79 @@
+---
+name: modify tickets
+runner_type: python-script
+description: tickets to others.
+enabled: true
+entry_point: automationSendModify.py
+parameters:
+  url:
+    type: string
+    description: like '136xxxxxxxx'.
+    required: true
+  userName:
+    type: string
+    description: user name
+    required: true
+    secret:true
+  pwd:
+    type: string
+    description: pass word
+    required: true
+    secret:true
+  TicktID:
+    type: string
+    description: like 'INC00000052635'
+    required: true
+  Summary:
+    type: string
+    description:  info
+    required: true
+  Notes:
+    type: string
+    description: info
+    required: true
+  ASCPY:
+    type: string
+    description: like 'Lenovo'
+    required: true
+  ASORG:
+    type: string
+    description: like 'CC-Mointoring'
+    required: true
+  ASGRP:
+    type: string
+    description: like 'Mointoring'
+    required: true
+  ASCHG:
+    type: string
+    description:  itcode
+    required: true
+  Priority:
+    type: string
+    description: like 'High'
+    required: true
+  INCStatus:
+    type: string
+    description: The state you want to change the document to like 'Cancelled'
+    required: true
+    url,userName,pwd,TicktID, Summary, Notes, ASCPY, ASORG, ASGRP, ASCHG, Priority, INCStatus, Resolution,
+    Status_Reason, Root_Cause,workInfor,types
+  Resolution:
+    type: string
+    description: like 'Issue:\nReason:\nResolution:Monitoring Fixed'
+    required: true
+  Status_Reason:
+    type: string
+    description: like 'Auto resume'
+    required: true
+  Root_Cause:
+    type: string
+    description: like 'Auto recovery'
+    required: true
+  workInfor:
+    type: string
+    description: The description you want to add to the document
+    required: true
+  types:
+    type: string
+    description: If 'modify' is entered, the document is operated; otherwise, only the document description is added
+    required: true

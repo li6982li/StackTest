@@ -6,7 +6,7 @@ from qcloudsms_py import SmsSingleSender
 from qcloudsms_py.httpclient import HTTPError
 import random
 
-from st2common.runners.base_action import Action
+# from st2common.runners.base_action import Action
 
 
 def sms_template_parameters(msg1, msg2):
@@ -25,13 +25,11 @@ def sms_template_parameters(msg1, msg2):
 
 
 
-class SendSingleSms(Action):
+class SendSingleSms():
 
     def run(self, phoneNum,smsMsg1,smsMsg2,APPID ,APPKEY ,TEMPLATE_IDS ,SMS_SIGN ,SMS_CODE_REDIS_EXPIRES):
         try:
-            # APPID = int(float(APPID))
-            # TEMPLATE_IDS = int(float(TEMPLATE_IDS))
-            # SMS_CODE_REDIS_EXPIRES = int(float(SMS_CODE_REDIS_EXPIRES))
+            APPID = int(APPID)
             # Generate 4-digit random extension code extend
             extend = random.randint(0, 9999)
             # Add 0 in front of less than 4
@@ -60,5 +58,6 @@ class SendSingleSms(Action):
             return ["Failed","sendMessages error:%s" % e]
 
 
+# print(SendSingleSms().run("13651436520","","","1400247962" ,"b76c10560f1b37bde837a3d84ef2f24e" ,787722 ,"联想监控中心" ,60))
 
 
