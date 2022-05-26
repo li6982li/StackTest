@@ -37,10 +37,12 @@ parameters:
     type: string
     description: aliyun info
     required: true
+    secret: true
   ACCESS_KEY_SECRET:
     type: string
     description: aliyun info
     required: true
+    secret: true
   template:
     type: string
     description: aliyun info

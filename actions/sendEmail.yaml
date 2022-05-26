@@ -49,6 +49,7 @@ parameters:
     type: string
     description: sender password.
     required: true
+    secret: true
   primarySmtpAddress:
     type: string
     description: sender email

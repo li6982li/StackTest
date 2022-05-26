@@ -21,10 +21,14 @@ parameters:
     type: integer
     description: info
     required: true
+    position: 1
+    secret: true
   APPKEY:
     type: string
     description:  info
     required: true
+    position: 2
+    secret: true
   TEMPLATE_IDS:
     type: integer
     description: info
