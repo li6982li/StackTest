@@ -5,3 +5,4 @@ qcloudsms_py==0.1.4
 requests==2.27.1
 aliyun-python-sdk-core==2.13.36
 aliyun-python-sdk-core-v3==2.13.33
+kafka-python==2.0.1
