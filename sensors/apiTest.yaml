@@ -1,7 +1,7 @@
 ---
-class_name: KafkaTestSensor
+class_name: KafkaMessageSensor
 entry_point: testKafka.py
-description: "test for kafka consumer"
+description: "Sensor which monitors Kafka broker for a new messages"
 trigger_types:
   - name: lyn_message
     description: "Trigger which indicates that a new message has arrived to Apache Kafka"
