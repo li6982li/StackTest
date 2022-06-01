@@ -1,35 +1,29 @@
 from kafka import KafkaProducer
 
 from st2common.runners.base_action import Action
-
-
+import json
+import logging
 class LMACProducer(Action):
     def run(self,tickets):
         print(tickets)
-        return tickets
-        # try:
-        #     ip = cf2.get("kafka", hostList)
-        #     ips = ip.split(",")
-        #     topic = cf2.get("kafka", topic)
-        #     producer = KafkaProducer(bootstrap_servers=ips)
-        #
-        #     # write into the kafka
-        #     try:
-        #         msg = json.dumps(data).encode()
-        #         producer.send(topic, msg).get()
-        #     # write into the kafka fail
-        #     except Exception as e:
-        #         logging.warning('[%s] product send data to the kafka topic [%s] error %s!' % (data['Incident ID'], topic, e))
-        #         writeError(data['Incident ID'], datetime.datetime.now(), data['Summary'], data['Priority'],
-        #                    "%s insert kafka topic %s error %s" % (data['Incident ID'], topic, e))
-        #         producer.close()
-        #         return -1
-        #     # write into the kafka success
-        #     else:
-        #         producer.close()
-        #         return 0
-        # except Exception as e:
-        #     logging.warning('[%s] send data to the kafka topic [%s] error %s!' % (data['Incident ID'], topic, e))
-        #     writeError(data['Incident ID'], datetime.datetime.now(), data['Summary'], data['Priority'],
-        #                "%s insert kafka topic %s error %s" % (data['Incident ID'], topic, e))
-        #     return -1
+
+        tickets = eval(tickets)
+        print(tickets)
+        tickets = tickets["payload"]["message"]
+        ips = tickets["ips"].split(",")
+        try:
+            producer = KafkaProducer(bootstrap_servers=ips)
+        except Exception as e:
+            print("connect error:%s" % e)
+            return "Failed:%s" % e
+        try:
+            msg = json.dumps(tickets).encode()
+            producer.send(tickets["topic"], msg).get()
+            producer.close()
+            return "Success"
+        except Exception as e:
+            print("send error:%s" % e)
+            return "Failed：%s" % e
+
+        finally:
+            producer.close()
