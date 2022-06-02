@@ -6,7 +6,7 @@ from qcloudsms_py import SmsSingleSender
 from qcloudsms_py.httpclient import HTTPError
 import random
 
-# from st2common.runners.base_action import Action
+from st2common.runners.base_action import Action
 
 
 def sms_template_parameters(msg1, msg2):
@@ -25,7 +25,7 @@ def sms_template_parameters(msg1, msg2):
 
 
 
-class SendSingleSms():
+class SendSingleSms(Action):
 
     def run(self, phoneNum,smsMsg1,smsMsg2,APPID ,APPKEY ,TEMPLATE_IDS ,SMS_SIGN ,SMS_CODE_REDIS_EXPIRES):
         try:
