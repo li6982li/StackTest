@@ -1,9 +1,9 @@
 ---
-name: kafkaProducer
+name: lmackafkaProducer
 runner_type: python-script
 description: test for producer
 enabled: true
-entry_point: kafkaProducer.py
+entry_point: automationKafkaProducer.py
 parameters:
   tickets:
     type: string

@@ -121,7 +121,8 @@ class ParseAction(Action):
 
         print("主数据",master)
         if isinstance(master,tuple) and str(master).find("0")>=0:
-            return dbObj.parseTicket(tickets["Summary"],tickets["Notes"],tickets["Incident ID"],tickets["Priority"])
-
+            info =  dbObj.parseTicket(tickets["Summary"],tickets["Notes"],tickets["Incident ID"],tickets["Priority"])
+            print(info,master)
+            return info + ["13651436520"]
 
 
