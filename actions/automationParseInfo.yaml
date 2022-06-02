@@ -1,9 +1,9 @@
 ---
-name: automationMysql
+name: automationParseInfo
 runner_type: python-script
 description: check four account and priority
 enabled: true
-entry_point: automationMysql.py
+entry_point: automationParseInfo.py
 parameters:
   host:
     type: string
