@@ -8,7 +8,7 @@ class Ticket(Action):
             print("*"*30)
             if isinstance(monitorTicket,str):
                 monitorTicket = eval(monitorTicket)
-            monitorTicket = monitorTicket["payload"]["message"]
+            # monitorTicket = monitorTicket["payload"]["message"]
             if monitorTicket['Priority'] == "Critical":
                 if monitorTicket['Submitter'] in ['niulx2', 'tiandj1', 'chenlei16', 'shihy4', 'huangjie5', 'wahmad']:
                     return ""
@@ -20,7 +20,7 @@ class Ticket(Action):
                      )):
                 return "auto"
             else:
-                return ""
+                return "unauto"
         except Exception as e:
             print("error:%s" % e)
             return e
