@@ -59,7 +59,7 @@ class KafkaMessageSensor(Sensor):
         map(self._consumer._client.ensure_topic_exists, self._topics)
         self._consumer.set_topic_partitions(*self._topics)
 
-    def run(self):
+    def run(self,):
         """
         Run infinite loop, continuously reading for Kafka message bus,
         dispatch trigger with payload data if message received.
