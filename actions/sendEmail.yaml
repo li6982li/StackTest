@@ -54,3 +54,7 @@ parameters:
     type: string
     description: sender email
     required: true
+  url:
+    type: string
+    description: sender email
+    required: true

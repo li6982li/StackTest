@@ -58,6 +58,5 @@ class SendSingleSms(Action):
             return ["Failed","sendMessages error:%s" % e]
 
 
-# print(SendSingleSms().run("13651436520","","","1400247962" ,"b76c10560f1b37bde837a3d84ef2f24e" ,787722 ,"联想监控中心" ,60))
 
 

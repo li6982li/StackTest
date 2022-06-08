@@ -1,15 +1,4 @@
-"""
-Filename:           delMysqlConnect.py
-Description:        Native statement connection processing mysql
-Create Date:        2020/12/06 09:00:00
-Author:             yannan li
-Email:              liyn25@lenovo.com
-Team Members:       Bruce Mao, Jinhui Ma, Yannan Li
-Version:            1.0
-Change History      Date                    Modified by                 Modified Reason
-CH3                 12/23/2020              Yannan Li                Code optimization
 
-"""
 import time
 import pymysql
 pymysql.install_as_MySQLdb()
@@ -66,7 +55,7 @@ class ParseInfo(mysqlDb):
                 callIp = "IP地址为:%s的网络设备" % ip
                 type = "network"
 
-            elif notes.find("AppSystem:") >= 0:  # 统一的应用监控
+            elif notes.find("AppSystem:") >= 0:
                 types = notes.split("AppSystem:")[1].split("]")[0]
                 smsHostName = "的%s应用监控点" % types
                 callIp = "%s应用监控点" % ".".join(types.replace("-", ""))
@@ -93,7 +82,7 @@ class ParseInfo(mysqlDb):
                 callIp = "SN号为:%s的设备" % ip
                 type = "hardware"
 
-            elif "Support_Organization" in notes and "job_name" in notes:  # ludp & 麦哲伦单据
+            elif "Support_Organization" in notes and "job_name" in notes:
                 notes = eval(notes)
                 types = notes.get("system_name", "ludp")
                 smsHostName = "%s应用监控点，Job Name:%s" % (types, notes.get("job_name"))
